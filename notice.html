@@ -7,12 +7,12 @@
   </head>
   <body>
 
-    <div id="controls">
+    <div id="controls" class="ctrl-hidden">
       <div class="control active">max width: 600px</div>
       <div class="control" data-change="true">max width: 730px</div>
     </div>
-    
-    <div id="show-notice">Show the notice</div>
+
+    <div id="notice-control"><span id="show-notice">Show the notice</span></div>
 
     <script>
       window.didomiConfig = {
@@ -120,6 +120,7 @@
     <style>
       body{
         font-family:Arial, sans-serif;
+        margin:0;
       }
       #controls{
         z-index:9999999999;
@@ -128,6 +129,28 @@
         justify-content:space-around;
         width:100%;
         margin-top:40px;
+        opacity:1;
+        transition-duration:0.3s;
+      }
+      #controls.ctrl-hidden{
+        opacity:0;
+      }
+      #notice-control{
+        position:fixed;
+        width:100%;
+        min-height:100vh;
+        height:100%;
+        display:flex;
+        align-items:center;
+        justify-content: center;
+      }
+      #show-notice{
+        padding:7px 10px;
+        cursor:pointer;
+        border-radius:4px;
+        color:#05687b;
+        border:1px solid #05687b;
+        border-radius:4px;
       }
       .control{
         cursor:pointer;
@@ -137,7 +160,7 @@
         color:#05687b;
         transition-duration:0.3s;
       }
-      .control:hover, .control.active{
+      #show-notice:hover, .control:hover, .control.active{
         background-color:#05687b;
         color:#FFFFFF;
       }
@@ -151,6 +174,23 @@
     </style>
 
     <script>
+
+      window.didomiEventListeners = window.didomiEventListeners || [];
+      window.didomiEventListeners.push(
+        {
+          event: 'notice.shown',
+          listener: function () {
+            document.getElementById('controls').classList.remove('ctrl-hidden');
+          }
+        },
+        {
+          event: 'notice.hidden',
+          listener: function () {
+            document.getElementById('controls').classList.add('ctrl-hidden');
+          }
+        }
+      );
+
       Array.from(document.getElementsByClassName('control')).forEach(el => {
         el.addEventListener('click', () => {
           document.getElementsByClassName('active')[0].classList.remove('active');
@@ -164,9 +204,9 @@
           }
         });
       });
-      
+
       document.getElementById('show-notice').addEventListener('click', () => {
-        Didomi.notice.show();                                                        
+        Didomi.notice.show();
       });
     </script>
 
