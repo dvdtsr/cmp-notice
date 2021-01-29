@@ -306,6 +306,102 @@
 
 
     </div>
+
+    <div class="step">
+      <h2>Step 3 - Use our API to manage user consents</h2>
+      <div class="question">
+        <p>Creates 10 consent events for 10 different users with a positive consent for the purpose cookies and the vendor google.</p>
+      </div>
+      <div class="response">
+        <p>I relied on these documentation pages:</p>
+        <a class="link" href="https://api.didomi.io/docs/" target="_blank">https://api.didomi.io/docs/</a>
+        <p></p>
+        <a class="link" href="https://developers.didomi.io/api/consents/events" target="_blank">https://developers.didomi.io/api/consents/events</a>
+        <p>I assume I already have an authorized JWT access token:</p>
+        <a class="link" href="https://developers.didomi.io/api/introduction/authentication" target="_blank">https://developers.didomi.io/api/introduction/authentication</a>
+        <p><br></p>
+        <p>Here is my Shell script suggestion:</p>
+        <div class="code">
+          for userid in {0..9}; do<br>
+            &nbsp;curl -X "POST" "http://api.didomi.io/consents/events?organization_id=myorgid"<br>
+            --data &lt;BODY>
+          done
+        </div>
+        <p>And here is the request body:</p>
+        <div class="code">
+          {<br>
+          &nbsp;"user": {<br>
+          &nbsp;&nbsp;"id": "${userid}",<br>
+          &nbsp;},<br>
+          &nbsp;"consents": {<br>
+          &nbsp;&nbsp;"purposes": [<br>
+          &nbsp;&nbsp;&nbsp;{<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;"id": "cookies",<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;"enabled": true<br>
+          &nbsp;&nbsp;&nbsp;}<br>
+          &nbsp;&nbsp;]<br>
+          &nbsp;}<br>
+          }
+        </div>
+        <p>Each loop will set the "userid" value from 0 to 9 to the user.id key<br>
+          the consents.purposes[0].id value is "cookies".<br>
+          the consents.purposes[0].enabled value is "true".
+        </p>
+      </div>
+
+      <div class="question">
+        <p>Gets the consent status for these 10 users as well as their Didomi ID and displays it</p>
+      </div>
+      <div class="response">
+        <p>
+          Shell script:
+        </p>
+        <div class="code">
+          for userid in {0..9}; do<br>
+          &nbsp;curl -X GET "https://api.didomi.io/consents/events?organization_id=myorgid&user_id=${userid}" -H  "accept: application/json" |
+          &nbsp;tee -a result.json ;<br>
+          done
+        </div>
+        <p>
+          The endpoint parameter "user_id" is updated from 0 to 9 in each loop.<br>
+          The result is written into the file "result.json"
+        </p>
+      </div>
+
+      <div class="question">
+        <p>Updates the consent status for these 10 users to disable the purpose cookies</p>
+      </div>
+
+      <div class="response">
+        <p>According to the documentation, the update process is the same as the creation process. If the user.id already exists, the request will update it.<br>
+        </p>
+        <div class="code">
+          for userid in {0..9}; do<br>
+            &nbsp;curl -X "POST" "http://api.didomi.io/consents/events?organization_id=myorgid"<br>
+            --data &lt;BODY>
+          done
+        </div>
+        <p>And here is the request body:</p>
+        <div class="code">
+          {<br>
+          &nbsp;"user": {<br>
+          &nbsp;&nbsp;"id": "${userid}",<br>
+          &nbsp;},<br>
+          &nbsp;"consents": {<br>
+          &nbsp;&nbsp;"purposes": [<br>
+          &nbsp;&nbsp;&nbsp;{<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;"id": "cookies",<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;"enabled": false<br>
+          &nbsp;&nbsp;&nbsp;}<br>
+          &nbsp;&nbsp;]<br>
+          &nbsp;}<br>
+          }
+        </div>
+        <p>The only difference is consents.purposes.enabled value is "false" in the cUrl POST body.</p>
+      </div>
+
+
+    </div>
   </div>
 
   <a href="javascript:Didomi.preferences.show()">Consent preferences</a>
