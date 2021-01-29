@@ -32,12 +32,12 @@
       <div class="response">
         <p class="italic mail">
           Hello,<br><br>
-          The only thing you need to do is to slightly amend the GA tag so it will be bound to the user's consent.
-          We have a complete documentation describing exactly how to proceed, here it is : <br><br>
+          The only thing to do is to modify the GA tag so that it is tied to the user's consent.
+          We have full documentation outlining exactly how to do this, here it is : <br><br>
           <a class="link" href="https://developers.didomi.io/cmp/web-sdk/third-parties/custom-integrations/no-tag-manager#consent-to-vendors"
             target="_blank">https://developers.didomi.io/cmp/web-sdk/third-parties/custom-integrations/no-tag-manager#consent-to-vendors</a>
           <br><br>
-          Let us know if you have any question or if you need further guidance.
+          Let us know if you have any questions or if you need further advice.
           <br><br>
           Best regards
 
@@ -66,14 +66,14 @@
         <p class="italic mail">
           Hello,
           <br></br>
-          Thank you for your email. It seems that you have set test.didomi.io in the domain whitelist. You also activated the customs domains option. That's the reason why the consent notice does not shows up on didomi.io.
+          Thank you for your email. It looks like you have set test.didomi.io in the domain whitelist. You have also activated the customs domains option. This is the reason why the consent notice does not appear on didomi.io.
           <br><br>
-          To resolve this issue you can : <br>
+          To solve this problem, there are three solutions to chose from: <br>
           - add didomi.io in the domain whitelist<br>
-          - replace test.didomi.io with didomi.io (if you no longer need to activate the notice on your test environment).<br>
+          - replace test.didomi.io by didomi.io (if you no longer need to activate the notice on your test environment).<br>
           - activate the option "use on all domains"
           <br><br>
-          Let us know if you have any question or if you need further guidance.
+          Let us know if you have any questions or need further advice.
           <br><br>
           Best regards
         </p>
@@ -95,15 +95,15 @@
           <br><br>
           Merci d'avance
         </p>
-        <p>@
-          according to the documentation, we can expect latency before seeing analytics statistics:
+        <p>
+          According to the related documentation, we can expect latency before seeing analytics statistics:
         </p>
         <p>
           <a class="link" href="https://support.didomi.io/fr/mes-donn%C3%A9es-ne-remontent-pas-dans-analytics" target="_blank">https://support.didomi.io/fr/mes-donn%C3%A9es-ne-remontent-pas-dans-analytics</a>
         </p>
-        <p>Further verifications would consists in:<br>
-          - checking the website traffic<br>
-          - searching any technical integration issue</p>
+        <p>Further verification would consist of:<br>
+          - checking the traffic on the site<br>
+          - search for any technical integration problem</p>
       </div>
     </div>
 
@@ -122,15 +122,15 @@
       <div class="response">
         <p class="italic mail">
           Hello,<br><br>
-          To avoid banner display duplication, the idea is to pass the consent information into the webview so the user will not have to give consent again in each webview.<br><br>
+          To avoid the duplication of the banner display, the idea is to pass the consent information into the webview so that the user does not have to give consent again in each webview.<br><br>
           You will need to:<br><br>
-          - integrate Didomi native SDK in your app to collect consents.<br>
-          - integrate Didomi web SDK in the webviews to receive and process the collected consents.<br>
+          - integrate the native Didomi SDK into your app to collect consents.<br>
+          - integrate the web Didomi SDK into the webviews to receive and process the consents collected.<br>
           - connect the dots between these two<br><br>
           Here is the related documentation:<br>
           <a target="_blank" class="link"
             href="https://developers.didomi.io/cmp/mobile-sdk/share-consent-with-webviews#webviews-android-and-ios">https://developers.didomi.io/cmp/mobile-sdk/share-consent-with-webviews#webviews-android-and-ios</a><br><br>
-          Feel free to reach out if you need more details.<br><br>
+          Please don't hesitate to contact us if you need more details.<br><br>
           Regards,
         </p>
       </div>
@@ -156,7 +156,7 @@
           <a class="link" href="notice.html" target="_blank">./notice.html</a>
         </p>
         <p>
-          There was no issue with the original notice but if the following CSS is added, the same bug is visible:
+          There was no issue with the original notice but the customer added the following CSS:
         </p>
         <div class="code">
           #didomi-host .didomi-popup-notice-optin-type{ max-width:600px; }
@@ -167,8 +167,8 @@
         <div class="code">
           #didomi-host .didomi-popup-notice-optin-type{ max-width:730px; }
         </div>
-        <p>I assume the customer has overriden this value while trying to change the layout. <br>
-          The solution would be him to remove this CSS rule.
+        <p>
+          The solution would be to remove this custom CSS rule.
         </p>
       </div>
     </div>
@@ -191,16 +191,17 @@
       <div class="response">
         <p>The consent notice is integrated in this page.</p>
         <p>
-        For some reason, I did not managed to set English as a default language:<br>
+        For some reason I haven't been able to set English as the default language:<br>
       </p>
         <div class="code">
           (Didomi.getConfig()).languages<br><br>
+          >><br>
           languages: {<br>
           &nbsp;&nbsp;enabled: ["en", "fr"],<br>
           &nbsp;&nbsp;default: "en"<br>
           }<br>
         </div>
-        <p>The language is still French by default.<br>Also, when I change my browser language to english, the consent notice shows up in english.</p>
+        <p>The language is always French by default.<br>But when I change the language of my browser to English, the consent notice is displayed in English.</p>
       </div>
 
     </div>
@@ -223,13 +224,13 @@
       </div>
 
       <div class="response">
-        <p>Even if no written answer is expected here, I would like to list how I proceed and hopefully we can exchange about this subsequently.</p>
+        <p>I would like to list how I proceed and I hope that we can discuss this later.</p>
         <h3>Is the notice tag correctly deployed?</h3>
         <h4>Layout</h4>
         <ul>
-          <li>Visit the page <a class="link" href="https://www.leparisien.fr/" target="_blank">Le Parisien</a> in incognito mode to make sure the notice shows up.</li>
-          <li>Verify if the consent notice is actually deployed</li>
-          <li>verify the style: as the notice is directly integrated onto the page, the notice CSS rules could inherit unexpected CSS declarations.</li>
+          <li>I visited the page <a class="link" href="https://www.leparisien.fr/" target="_blank">Le Parisien</a> in incognito mode to make sure the notice shows up.</li>
+          <li>verified if the consent notice is deployed (visually).</li>
+          <li>checked the style: as the notice is directly integrated onto the page, the notice's CSS rules could inherit unexpected CSS declarations from the publisher.</li>
         </ul>
         <div class="img-container">
           <img class="img img-3" src="images/dido1.jpg" alt="didomi">
@@ -237,10 +238,10 @@
         </div>
         <h4>Behavior</h4>
         <ul>
-          <li>Open the dev tools</li>
-          <li>Check the network tab to verify if the SDK is loaded without any error</li>
-          <li>Check the console and verify if no Javascript error related to the API ocurrs.</li>
-          <li>To click the "I consent" button in the consent notice should trigger the storage of additional cookies.<br>
+          <li>I openned the dev tools</li>
+          <li>checked the network tab to verify if the SDK is loaded without any error</li>
+          <li>checked the console and verified if no Javascript error related to the API ocurrs.</li>
+          <li>clicking the "I consent" button in the consent notice should trigger the storage of additional cookies.<br>
             (here, 30 cookies before giving consent, and 139 after.)
           </li>
         </ul>
@@ -251,7 +252,7 @@
 
         <h3>Are the following specific integrations correctly configured: Google DFP/Ad Manager, Prebid, Google Tag Manager?</h3>
         <h4>Google DFP/ Ad Manager</h4>
-        <p>The following documentation provides guidance about the Google integration:</p>
+        <p>The following documentation provides details on Google integration:</p>
         <p>
           <a class="link" href="https://developers.didomi.io/cmp/web-sdk/third-parties/direct-integrations/google-dfp-adsense-adx/share-consent-and-refresh"
             target="_blank">https://developers.didomi.io/cmp/web-sdk/third-parties/direct-integrations/google-dfp-adsense-adx/share-consent-and-refresh</a>
@@ -263,7 +264,7 @@
         <div class="img-container">
           <img class="img img-2" src="images/dido7.jpg" alt="didomi">
         </div>
-        <p>It should include: The Google IAB vendors (here, all: true) & "Google" in the Didomi vendor's list</p>
+        <p>The result should include: The Google IAB vendors (here, all: true) & "Google" in the Didomi vendor's list</p>
 
         <h4>Prebid</h4>
         <p>
@@ -292,9 +293,9 @@
           <a class="link" href="https://developers.didomi.io/cmp/web-sdk/third-parties/custom-integrations/tag-managers/google-tag-manager"
             target="_blank">https://developers.didomi.io/cmp/web-sdk/third-parties/custom-integrations/tag-managers/google-tag-manager</a>
         </p>
-        <p>the Didomi global object displays this information.</p>
+        <p>The Didomi global object displays this information.</p>
         <p>
-          On the publisher’s page run the following JS to verify if the publisher has connected GTM to the CMP:
+          On the publisher’s page run the following JS to check if the publisher has connected GTM to the CMP:
         </p>
         <div class="code">(Didomi.getConfig()).tagManager</div>
         <div class="img-container">
