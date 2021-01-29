@@ -1,0 +1,378 @@
+<html>
+
+<head>
+  <!--
+    Load the Didomi SDK before any other tag.
+  -->
+    <script type="text/javascript" src="https://sdk.privacy-center.org/89a1965c-e470-462e-9467-6132bb46ab94/loader.js"></script>
+
+
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+  <div id="content">
+
+    <div class="step">
+
+      <h1>Technical Support Officer - Technical Tests</h1>
+
+
+      <div class="question">
+        <h2>Question 1: I only use Google Analytics on my website, what should I do? </h2>
+        <p class="italic mail">Hello,<br><br>
+          I am setting the notice on my website and I only use Google Analytics as a provider. What do I have to do? How can I configure my GA tag based on consent? <br><br>
+          Thank you,
+        </p>
+      </div>
+
+      <div class="response">
+        <p class="italic mail">
+          Hello,<br><br>
+          The only thing you need to do is to slightly amend the GA tag so it will be bound to the user's consent.
+          We have a complete documentation describing exactly how to proceed, here it is : <br><br>
+          <a class="link" href="https://developers.didomi.io/cmp/web-sdk/third-parties/custom-integrations/no-tag-manager#consent-to-vendors"
+            target="_blank">https://developers.didomi.io/cmp/web-sdk/third-parties/custom-integrations/no-tag-manager#consent-to-vendors</a>
+          <br><br>
+          Let us know if you have any question or if you need further guidance.
+          <br><br>
+          Best regards
+
+        </p>
+
+      </div>
+    </div>
+    <div class="step">
+
+      <div class="question">
+        <h2>Question 2: my banner isn’t displayed on my website </h2>
+        <p class="italic mail">
+          Hi Didomi, <br><br>
+          My banner isn’t displayed on my website https://didomi.io, but I’ve put the domain in my banner and added the script in my &lt;head&gt;.
+          <br><br>
+          Please find the screenshots below.
+          <br><br>
+          Banner:
+        </p>
+        <div class="img-container">
+          <img class="img img-2" src="images/dido8.jpg" alt="didomi">
+        </div>
+      </div>
+
+      <div class="response">
+        <p class="italic mail">
+          Hello,
+          <br></br>
+          Thank you for your email. It seems that you have set test.didomi.io in the domain whitelist. You also activated the customs domains option. That's the reason why the consent notice does not shows up on didomi.io.
+          <br><br>
+          To resolve this issue you can : <br>
+          - add didomi.io in the domain whitelist<br>
+          - replace test.didomi.io with didomi.io (if you no longer need to activate the notice on your test environment).<br>
+          - activate the option "use on all domains"
+          <br><br>
+          Let us know if you have any question or if you need further guidance.
+          <br><br>
+          Best regards
+        </p>
+      </div>
+    </div>
+    <div class="step">
+
+      <div class="question">
+        <h2>Question 3: mon analytics est vide, aucune donnée ne remonte!!!</h2>
+        <p class="italic mail">Je viens juste de déployer ma bannière en production mais mon analytics est vide ! Pourquoi ??
+        </p>
+      </div>
+      <div class="response">
+        <p class="italic mail">
+          Bonjour,<br><br>
+          Il faut généralement attendre quelques heures pour voir les données analytics apparaître dans l'interface.
+          <br><br>
+          Dans l'intervale, pour nous assurer que la solution est bien fonctionnelle, pouvez vous nous fournir l'url de votre site afin que nous controlions l'intégration?
+          <br><br>
+          Merci d'avance
+        </p>
+        <p>@
+          according to the documentation, we can expect latency before seeing analytics statistics:
+        </p>
+        <p>
+          <a class="link" href="https://support.didomi.io/fr/mes-donn%C3%A9es-ne-remontent-pas-dans-analytics" target="_blank">https://support.didomi.io/fr/mes-donn%C3%A9es-ne-remontent-pas-dans-analytics</a>
+        </p>
+        <p>Further verifications would consists in:<br>
+          - checking the website traffic<br>
+          - searching any technical integration issue</p>
+      </div>
+    </div>
+
+    <div class="step">
+
+      <div class="question">
+        <h2>Question 4: using webviews in app</h2>
+        <p class="italic mail">
+          Hello team, <br><br>
+          I’m setting your SDK on my Android app but some pages of my checkout funnel are webviews, how can I make sure the banner isn’t displayed twice?
+          <br><br>
+          Thanks a lot!
+
+        </p>
+      </div>
+      <div class="response">
+        <p class="italic mail">
+          Hello,<br><br>
+          To avoid banner display duplication, the idea is to pass the consent information into the webview so the user will not have to give consent again in each webview.<br><br>
+          You will need to:<br><br>
+          - integrate Didomi native SDK in your app to collect consents.<br>
+          - integrate Didomi web SDK in the webviews to receive and process the collected consents.<br>
+          - connect the dots between these two<br><br>
+          Here is the related documentation:<br>
+          <a target="_blank" class="link"
+            href="https://developers.didomi.io/cmp/mobile-sdk/share-consent-with-webviews#webviews-android-and-ios">https://developers.didomi.io/cmp/mobile-sdk/share-consent-with-webviews#webviews-android-and-ios</a><br><br>
+          Feel free to reach out if you need more details.<br><br>
+          Regards,
+        </p>
+      </div>
+
+    </div>
+
+    <div class="step">
+
+      <div class="question">
+        <h2>Question 5: the notice is not really pretty </h2>
+        <p class="italic mail">
+          Hello, <br><br>
+          I’m trying to add a “refuse all” button following the documentation below: https://support.didomi.io/en/add-a-decline-button-on-the-first-layer-of-the-consent-notice <br><br>
+          It works well, but the notice is not really pretty… Look: <br><br>
+          I know I can add some CSS, I’ve tried but didn’t manage to do anything.<br><br>
+          Could you please help me out? <br><br>
+          Thank you,
+        </p>
+      </div>
+      <div class="response">
+        <p>
+          Here is an environment where the customer notice is integrated:
+          <a class="link" href="notice.html" target="_blank">./notice.html</a>
+        </p>
+        <p>
+          There was no issue with the original notice but if the following CSS is added, the same bug is visible:
+        </p>
+        <div class="code">
+          #didomi-host .didomi-popup-notice-optin-type{ max-width:600px; }
+        </div>
+        <p>
+          The default value was:
+        </p>
+        <div class="code">
+          #didomi-host .didomi-popup-notice-optin-type{ max-width:730px; }
+        </div>
+        <p>I assume the customer has overriden this value while trying to change the layout. <br>
+          The solution would be him to remove this CSS rule.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="step">
+      <h1>Solution Engineer - Technical Tests</h1>
+      <h2>Step 1 - Create a consent notice</h2>
+      <div class="question">
+        <p>Notice Configuration</p>
+        <ul>
+          <li>Be a popin that blocks access to the page until consent has been given/denied</li>
+          <li>Use red as its main theme color</li>
+          <li>Collect consent for all IAB vendors, Google, and one custom vendor</li>
+          <li>Allow French and English as languages with English as the default language</li>
+        </ul>
+
+      </div>
+
+      <div class="response">
+        <p>The consent notice is integrated in this page.</p>
+        <p>
+        For some reason, I did not managed to set English as a default language:<br>
+      </p>
+        <div class="code">
+          (Didomi.getConfig()).languages<br><br>
+          languages: {<br>
+          &nbsp;&nbsp;enabled: ["en", "fr"],<br>
+          &nbsp;&nbsp;default: "en"<br>
+          }<br>
+        </div>
+        <p>The language is still French by default.<br>Also, when I change my browser language to english, the consent notice shows up in english.</p>
+      </div>
+
+    </div>
+
+    <div class="step">
+
+      <h2>Step 2 - Validate a CMP deployment</h2>
+      <div class="question">
+        <p>Our clients usually configure their CMP through the Didomi Console. Once their setup is done, Didomi often double-checks their configuration and confirm that the setup is correct.<br>
+          If you were tasked with validating a CMP deployment for a client, how would you validate the following elements:
+          <ul>
+            <li>The notice tag is correctly deployed</li>
+            <li>The notice behaves as expected</li>
+            <li>The following specific integrations are correctly configured: Google DFP/Ad Manager, Prebid, Google Tag Manager</li>
+          </ul>
+        </p>
+        <p>You can use the following website to run some of your tests: <a class="link" href="https://www.leparisien.fr/" target="_blank">Le Parisien</a></p>
+        <p>We expect you to present your findings and thought process during one of your interviews. No written answer is expected for this step.
+          We understand that you might not be familiar with some of the tools listed (DFP, GTM, etc.), in which case you can ignore that part or do only one of them.</p>
+      </div>
+
+      <div class="response">
+        <p>Even if no written answer is expected here, I would like to list how I proceed and hopefully we can exchange about this subsequently.</p>
+        <h3>Is the notice tag correctly deployed?</h3>
+        <h4>Layout</h4>
+        <ul>
+          <li>Visit the page <a class="link" href="https://www.leparisien.fr/" target="_blank">Le Parisien</a> in incognito mode to make sure the notice shows up.</li>
+          <li>Verify if the consent notice is actually deployed</li>
+          <li>verify the style: as the notice is directly integrated onto the page, the notice CSS rules could inherit unexpected CSS declarations.</li>
+        </ul>
+        <div class="img-container">
+          <img class="img img-3" src="images/dido1.jpg" alt="didomi">
+          <img class="img img-3" src="images/dido2.jpg" alt="didomi">
+        </div>
+        <h4>Behavior</h4>
+        <ul>
+          <li>Open the dev tools</li>
+          <li>Check the network tab to verify if the SDK is loaded without any error</li>
+          <li>Check the console and verify if no Javascript error related to the API ocurrs.</li>
+          <li>To click the "I consent" button in the consent notice should trigger the storage of additional cookies.<br>
+            (here, 30 cookies before giving consent, and 139 after.)
+          </li>
+        </ul>
+        <div class="img-container">
+          <img class="img img-3" src="images/dido3.jpg" alt="didomi">
+          <img class="img img-3" src="images/dido4.jpg" alt="didomi">
+        </div>
+
+        <h3>Are the following specific integrations correctly configured: Google DFP/Ad Manager, Prebid, Google Tag Manager?</h3>
+        <h4>Google DFP/ Ad Manager</h4>
+        <p>The following documentation provides guidance about the Google integration:</p>
+        <p>
+          <a class="link" href="https://developers.didomi.io/cmp/web-sdk/third-parties/direct-integrations/google-dfp-adsense-adx/share-consent-and-refresh"
+            target="_blank">https://developers.didomi.io/cmp/web-sdk/third-parties/direct-integrations/google-dfp-adsense-adx/share-consent-and-refresh</a>
+        </p>
+        <p>
+          On the publisher’s page run the following JS:
+        </p>
+        <div class="code">(Didomi.getConfig()).app.vendors</div>
+        <div class="img-container">
+          <img class="img img-2" src="images/dido7.jpg" alt="didomi">
+        </div>
+        <p>It should include: The Google IAB vendors (here, all: true) & "Google" in the Didomi vendor's list</p>
+
+        <h4>Prebid</h4>
+        <p>
+          Through the global prebid object “pbjs” exposed on the page, we can verify if the CMP is registered in prebid.
+        </p>
+        <p>
+          <a class="link" href="https://developers.didomi.io/cmp/web-sdk/third-parties/direct-integrations/prebid#configure-prebid" target="_blank">https://developers.didomi.io/cmp/web-sdk/third-parties/direct-integrations/prebid#configure-prebid</a>
+        </p>
+        <p>
+          On the publisher’s page run the following JS:
+        </p>
+        <div class="code">(pbjs.getConfig()).consentManagement</div>
+        <div class="img-container">
+          <img class="img img-2" src="images/dido5.jpg" alt="didomi">
+        </div>
+        <p>The CMP is registered.</p>
+        <p>
+          The following prebidjs documentation provides more details on the possibles options :
+        </p>
+        <p>
+          <a class="link" href="https://docs.prebid.org/dev-docs/modules/consentManagement.html#page-integration" target="_blank">https://docs.prebid.org/dev-docs/modules/consentManagement.html#page-integration</a>
+        </p>
+        <h4>GTM</h4>
+        <p>According to this documentation:</p>
+        <p>
+          <a class="link" href="https://developers.didomi.io/cmp/web-sdk/third-parties/custom-integrations/tag-managers/google-tag-manager"
+            target="_blank">https://developers.didomi.io/cmp/web-sdk/third-parties/custom-integrations/tag-managers/google-tag-manager</a>
+        </p>
+        <p>the Didomi global object displays this information.</p>
+        <p>
+          On the publisher’s page run the following JS to verify if the publisher has connected GTM to the CMP:
+        </p>
+        <div class="code">(Didomi.getConfig()).tagManager</div>
+        <div class="img-container">
+          <img class="img img-2" src="images/dido6.jpg" alt="didomi">
+        </div>
+        <p>GMT is connected to the CMP.</p>
+      </div>
+
+
+    </div>
+  </div>
+
+  <a href="javascript:Didomi.preferences.show()">Consent preferences</a>
+  </div>
+
+  <script>
+    window.didomiOnReady = window.didomiOnReady || [];
+
+    window.didomiConfig = {
+       "app":{
+         "apiKeys": "89a1965c-e470-462e-9467-6132bb46ab94",
+          "vendors":{
+             "iab":{
+                "all":true,
+                "stacks":{
+                   "ids":null,
+                   "auto":true
+                },
+                "enabled":true,
+                "exclude":[],
+                "include":[],
+                "version":2,
+                "restrictions":[]
+             },
+             "didomi":[
+                "google"
+             ],
+             "custom":[
+                {
+                   "id":"custom_vendor",
+                   "name":"custom_vendor",
+                   "policyUrl":"http://www.example.com",
+                   "purposeIds":[
+                      "select_personalized_ads",
+                      "cookies"
+                   ]
+                }
+             ]
+          }
+       },
+       "notice":{
+          "position":"popup",
+          "closeOnScroll":true,
+          "showDataProcessing":false,
+          "closeOnScrollThreshold":30,
+          "closeOnScrollThresholdType":"percent"
+       },
+       "languages":{
+          "default":"en",
+          "enabled":["fr", "en"]
+       },
+       "theme": {
+         "color": "#d44b4b"
+       },
+       "integrations":{
+          "vendors":{
+             "google":{
+                "enable":true,
+                "eprivacy":false,
+                "passTargetingVariables":true
+             }
+          }
+       }
+    }
+
+
+  </script>
+
+</body>
+
+</html>

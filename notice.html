@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+
+    <div id="controls">
+      <div class="control active">max width: 600px</div>
+      <div class="control" data-change="true">max width: 730px</div>
+    </div>
+
+    <script>
+      window.didomiConfig = {
+        notice: {
+          type: "optin"
+        }
+      }
+
+      window.gdprAppliesGlobally = true;
+      (function() {
+        function a(e) {
+          if (!window.frames[e]) {
+            if (document.body && document.body.firstChild) {
+              var t = document.body;
+              var n = document.createElement("iframe");
+              n.style.display = "none";
+              n.name = e;
+              n.title = e;
+              t.insertBefore(n, t.firstChild)
+            } else {
+              setTimeout(function() {
+                a(e)
+              }, 5)
+            }
+          }
+        }
+
+        function e(n, r, o, c, s) {
+          function e(e, t, n, a) {
+            if (typeof n !== "function") {
+              return
+            }
+            if (!window[r]) {
+              window[r] = []
+            }
+            var i = false;
+            if (s) {
+              i = s(e, t, n)
+            }
+            if (!i) {
+              window[r].push({
+                command: e,
+                parameter: t,
+                callback: n,
+                version: a
+              })
+            }
+          }
+          e.stub = true;
+
+          function
+          t(a) {
+            if (!window[n] || window[n].stub !== true) {
+              return
+            }
+            if (!a.data) {
+              return
+            }
+            var i = typeof a.data === "string";
+            var e;
+            try {
+              e = i ? JSON.parse(a.data) : a.data
+            } catch (t) {
+              return
+            }
+            if (e[o]) {
+              var r = e[o];
+              window[n](r.command, r.parameter, function(e, t) {
+                var n = {};
+                n[c] = {
+                  returnValue: e,
+                  success: t,
+                  callId: r.callId
+                };
+                a.source.postMessage(i ? JSON.stringify(n) : n, "*")
+              }, r.version)
+            }
+          }
+          if (typeof window[n] !== "function") {
+            window[n] = e;
+            if (window.addEventListener) {
+              window.addEventListener("message", t, false)
+            } else {
+              window.attachEvent("onmessage", t)
+            }
+          }
+        }
+        e("_ _tcfapi", "__tcfapiBuffer", "__tcfapiCall", "__tcfapiReturn");
+        a("__tcfapiLocator");
+        (function(e, tgt) {
+          var
+            t = document.createElement("script");
+          t.id = "spcloader";
+          t.type = "text/javascript";
+          t.async = true;
+          t.src = "https://sdk.privacy-center.org/" + e + "/loader.js?target_type=notice &target=" + tgt;
+          t.charset = "utf-8";
+          var
+            n = document.getElementsByTagName("script")[0];
+          n.parentNode.insertBefore(t, n)
+        })("6e4633bd-d62e-4ea8-b77e-c45aa98bcc28", "qHatmH7E")
+      })();
+    </script>
+
+    <style>
+      body{
+        font-family:Arial, sans-serif;
+      }
+      #controls{
+        z-index:9999999999;
+        position:fixed;
+        display:flex;
+        justify-content:space-around;
+        width:100%;
+        margin-top:40px;
+      }
+      .control{
+        cursor:pointer;
+        border:1px solid #05687b;
+        border-radius:4px;
+        padding:7px 10px;
+        color:#05687b;
+        transition-duration:0.3s;
+      }
+      .control:hover, .control.active{
+        background-color:#05687b;
+        color:#FFFFFF;
+      }
+      #didomi-host .didomi-popup-notice-optin-type{
+        max-width:600px;
+        transition-duration:0.3s;
+      }
+      #didomi-host .didomi-popup-notice-optin-type.test-modif{
+        max-width:730px;
+      }
+    </style>
+
+    <script>
+      Array.from(document.getElementsByClassName('control')).forEach(el => {
+        el.addEventListener('click', () => {
+          document.getElementsByClassName('active')[0].classList.remove('active');
+          if(el.getAttribute('data-change')) {
+            el.classList.add('active');
+            document.querySelector('#didomi-host .didomi-popup-notice-optin-type').classList.add('test-modif');
+          }
+          else{
+            el.classList.add('active');
+            document.querySelector('#didomi-host .didomi-popup-notice-optin-type').classList.remove('test-modif');
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>

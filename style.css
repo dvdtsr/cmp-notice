@@ -1,0 +1,140 @@
+body{
+  font-family: arial, sans-serif;
+  margin:0;
+  background-color:#f9f9f9;
+  font-size:14px;
+}
+
+.link{
+  color: #1a9dd4;
+  text-decoration:none;
+}
+#content{
+  width:80%;
+  margin:40px auto;
+  min-height:400vh;
+}
+
+.step{
+  background-color:#FFFFFF;
+  margin:40px auto;
+  padding:40px;
+  box-sizing:border-box;
+  border-radius:10px;
+  box-shadow:0px 1px 10px #00000080;
+}
+p{
+  color:#232323;
+  line-height:1.4em;
+}
+li{
+  color:#232323;
+}
+h1{
+  color:#232323;
+}
+h2{
+  font-weight:bold;
+  font-size:1.3em;
+  color:#232323;
+}
+h3{
+  color:#232323;
+}
+h4{
+  color:#232323;
+  margin:40px 0 20px 0;
+}
+.italic{
+  font-style:italic;
+}
+.code{
+  font-family:monospace;
+  padding: 15px 10px 15px 40px;
+  background-color: #F1F1F1;
+  color: #4a4a4a;
+  font-size: 0.9em;
+  border-left: 10px;
+  border-color: #cccccc;
+  border-style: solid;
+  border-width: 1px 1px 1px 20px;
+  border-radius:5px;
+}
+.img-container{
+  margin:40px auto 70px;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.img{
+  display:block;
+}
+.img-3{
+  width:30%;
+}
+.img-2{
+  width:50%;
+}
+.question, .response{
+  color:#232323;
+  border:2px solid currentColor;
+  border-radius:10px;
+  padding:20px;
+  position:relative;
+  margin:50px 0;
+}
+.question{
+  color:#ff6b00;
+}
+.response{
+  color:#05ce85;
+}
+.mail{
+  background-color: #4D4D4D;
+  color: #e8e8e8;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 6px;
+  position: relative;
+  margin:60px;
+}
+.mail:before{
+  content: 'message';
+  display: block;
+  position: absolute;
+  top: -15px;
+  right: 3%;
+  font-style: normal;
+  color: #4D4D4D;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+.question:before, .response:before{
+  display:block;
+  position:absolute;
+  background-color:#FFFFFF;
+  top: -7px;
+  left: 30px;
+  padding: 0 10px;
+  text-transform: uppercase;
+  font-size:0.8em;
+  color:currentColor;
+}
+.question:before{
+  content:'question';
+}
+.response:before{
+  content:'response';
+}
+
+
+p{
+  font-size:1em;
+}
+
+@media only screen and (max-width: 767px) {
+  #content{
+    width:100%;
+    margin:0;
+  }
+}
