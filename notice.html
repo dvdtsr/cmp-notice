@@ -11,6 +11,8 @@
       <div class="control active">max width: 600px</div>
       <div class="control" data-change="true">max width: 730px</div>
     </div>
+    
+    <div id="show-notice">Show the notice</div>
 
     <script>
       window.didomiConfig = {
@@ -161,6 +163,10 @@
             document.querySelector('#didomi-host .didomi-popup-notice-optin-type').classList.remove('test-modif');
           }
         });
+      });
+      
+      document.getElementById('show-notice').addEventListener('click', () {
+        Didomi.notice.show();                                                        
       });
     </script>
 
